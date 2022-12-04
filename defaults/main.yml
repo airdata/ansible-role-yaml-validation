@@ -1,6 +1,6 @@
 ---
 env: dev
 templates_folder: templates/
-yamllint_config: files/yamllint.yml
+yamllint_config: yamllint.yml
 yaml_files:
   - filebeat.yml.j2

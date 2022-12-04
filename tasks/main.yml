@@ -9,6 +9,11 @@
     state: latest
   when: "'yamllint' not in ansible_facts.packages"
 
+- name: Populate yamllint config
+  template:
+    src: "{{ yamllint_config }}"
+    dest: "{{ yamllint_config }}"
+
 - name: Populate yaml file
   template:
     src: "{{ item }}"
