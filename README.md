@@ -28,7 +28,7 @@ Including an example of how to use your role (for instance, with variables passe
     - hosts: localhost
       vars:
         yaml_files:
-          - files/filebeat.yml.j2
+          - files/example.yml.j2
           - files/some_oher_file.yml.j2
         env: dev
       roles:

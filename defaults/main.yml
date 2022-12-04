@@ -3,4 +3,4 @@ env: dev
 templates_folder: templates/
 yamllint_config: yamllint.yml
 yaml_files:
-  - filebeat.yml.j2
+  - example.yml.j2

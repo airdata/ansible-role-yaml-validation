@@ -11,7 +11,7 @@
 
 - name: Populate yamllint config
   template:
-    src: "files/{{ yamllint_config }}"
+    src: "{ yamllint_config }}"
     dest: "{{ yamllint_config }}"
 
 - name: Populate yaml file

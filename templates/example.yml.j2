@@ -17,13 +17,3 @@ filebeat.autodiscover:
     - type: docker
       hints.enabled: true
       hints.default_config.enabled: false
-
-output.elasticsearch:
-  enabled: true
-  hosts: [ "{{ env }}" ]
-  escape_html: true
-  index: "{{ env }}"
-  bulk_max_size: 500
-  backoff.init: 10s
-  backoff.max: 300s
-  timeout: 300

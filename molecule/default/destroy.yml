@@ -3,7 +3,7 @@
   hosts: localhost
   vars:
     yaml_files:
-      - filebeat.yml.j2
+      - example.yml.j2
     env: dev
   gather_facts: no
   tasks:
