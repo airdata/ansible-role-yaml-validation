@@ -9,11 +9,6 @@
     state: latest
   when: "'yamllint' not in ansible_facts.packages"
 
-- name: Populate yamllint config
-  template:
-    src: "{{ yamllint_config }}"
-    dest: "yamllint.yml"
-
 - name: Populate yaml file
   template:
     src: "{{ item }}"
@@ -22,7 +17,7 @@
     - "{{ yaml_files }}"
 
 - name: Validation with yamllint
-  shell: "yamllint -c yamllint.yml {{ item }}-{{ env }}"
+  shell: "yamllint -c .yamllint.yml {{ item }}-{{ env }}"
   register: output
   with_items:
     - "{{ yaml_files }}"
