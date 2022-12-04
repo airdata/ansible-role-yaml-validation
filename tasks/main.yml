@@ -4,7 +4,7 @@
     manager: "auto"
 
 - name: Install yamllint
-  apk:
+  apt:
     name: yamllint
     state: latest
   when: "'yamllint' not in ansible_facts.packages"
