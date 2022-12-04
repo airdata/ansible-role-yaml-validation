@@ -17,7 +17,7 @@
     - "{{ yaml_files }}"
 
 - name: Validation with yamllint
-  shell: "yamllint -c files/yamllint.yml {{ item }}-{{ env }}"
+  shell: "yamllint -c yamllint.yml {{ item }}-{{ env }}"
   register: output
   with_items:
     - "{{ yaml_files }}"
