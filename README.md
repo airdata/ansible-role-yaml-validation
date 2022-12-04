@@ -1,6 +1,8 @@
 Role Name
 =========
 
+[![.github/workflows/test.yml](https://github.com/airdata/ansible-role-yaml-validation/actions/workflows/test.yml/badge.svg)](https://github.com/airdata/ansible-role-yaml-validation/actions/workflows/test.yml)
+
 A brief description of the role goes here.
 
 Requirements
