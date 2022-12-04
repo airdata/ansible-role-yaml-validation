@@ -6,4 +6,4 @@
       - filebeat.yml.j2
     env: dev
   roles:
-      - ansible-role-yaml-validation
+      - yaml-validation

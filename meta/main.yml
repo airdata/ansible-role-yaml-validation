@@ -2,7 +2,7 @@ galaxy_info:
   author: Rumen Lishkov
   description: Yaml Validation
   company: Amadeus
-  role_name: name
+  role_name: yaml-validation
   namespace: airdata
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
