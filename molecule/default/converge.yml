@@ -3,6 +3,6 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: "Include yaml-validation"
+    - name: "Include ansible-role-yaml-validation"
       ansible.builtin.include_role:
-        name: "yaml-validation"
+        name: "ansible-role-yaml-validation"
