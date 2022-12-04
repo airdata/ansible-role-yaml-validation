@@ -10,4 +10,4 @@ jobs:
       - name: Molecule
         uses: monolithprojects/action-molecule@v1.4.1
         with:
-          molecule_command: test
+          molecule_command: converge
