@@ -1,0 +1,20 @@
+---
+- name: Destroy
+  hosts: localhost
+  vars:
+    yaml_files:
+      - filebeat.yml.j2
+    env: dev
+  gather_facts: no
+  tasks:
+    - name: Block
+      block:
+        - name: Remove file (delete file)
+          ansible.builtin.file:
+            path: "{{ item }}-{{ env }}"
+            state: absent
+          with_items:
+            - "{{ yaml_files }}"
+      rescue:
+        - name: It's ok we're at startup
+          meta: noop

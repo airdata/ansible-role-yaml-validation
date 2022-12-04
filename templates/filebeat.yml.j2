@@ -1,0 +1,29 @@
+setup.ilm:
+  enabled: false
+
+setup.template:
+  enabled: true
+  name: "{{ env }}"
+  pattern: "{{ env }}"
+  overwrite: true
+
+setup.template.settings:
+  index.number_of_shards: 1
+  index.codec: best_compression
+  _source.enabled: false
+
+filebeat.autodiscover:
+  providers:
+    - type: docker
+      hints.enabled: true
+      hints.default_config.enabled: false
+
+output.elasticsearch:
+  enabled: true
+  hosts: [ "{{ env }}" ]
+  escape_html: true
+  index: "{{ env }}"
+  bulk_max_size: 500
+  backoff.init: 10s
+  backoff.max: 300s
+  timeout: 300

@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  vars:
+    templates_folder: templates
+    yaml_files:
+      - filebeat.yml.j2
+    env: dev
+  roles:
+      - ansible-role-yaml-validation
