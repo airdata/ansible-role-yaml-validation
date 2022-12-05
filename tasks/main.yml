@@ -3,11 +3,17 @@
   package_facts:
     manager: "auto"
 
-- name: Install yamllint
+- name: Install yamllint on Alpine
   apk:
     name: yamllint
     state: latest
-  when: "'yamllint' not in ansible_facts.packages"
+  when: "'yamllint' not in ansible_facts.packages and ansible_os_family == 'Alpine'"
+
+- name: Install yamllint on RedHat
+  yum:
+    name: yamllint
+    state: latest
+  when: "'yamllint' not in ansible_facts.packages and ansible_os_family == 'RedHat'"
 
 - name: Populate yamllint config
   template:
