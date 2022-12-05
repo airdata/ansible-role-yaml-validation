@@ -4,9 +4,9 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
+  - name: AlpineInstance
     image: alpine:latest
-  - name: instance
+  - name: CenoOSInstance
     image: centos:7
 provisioner:
   name: ansible
