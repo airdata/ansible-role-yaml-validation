@@ -6,7 +6,8 @@ driver:
 platforms:
   - name: instance
     image: alpine:latest
-    pre_build_image: true
+  - name: instance
+    image: centos:7
 provisioner:
   name: ansible
 verifier:
