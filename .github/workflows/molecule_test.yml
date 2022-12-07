@@ -13,6 +13,6 @@ jobs:
       - name: Test Ansible with Molecule
         uses: arillso/action.molecule@0.0.5
         with:
-          command: create
+          command: test
           working_directory: ${{ github.repository }}
           scenario: default
