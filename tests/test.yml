@@ -1,9 +1,0 @@
----
-- hosts: localhost
-  vars:
-    templates_folder: templates
-    yaml_files:
-      - example.yml.j2
-    env: dev
-  roles:
-      - ansible-role-yaml-validation
