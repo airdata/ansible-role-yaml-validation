@@ -23,8 +23,10 @@
 
 - name: Populate yamllint config
   template:
-    src: "{{ yamllint_config }}"
-    dest: "{{ yamllint_config }}"
+    src: "{{templates_folder}}/{{ item }}"
+    dest: "{{ item }}-{{ env }}"
+  with_items:
+    - "{{ yamllint_config }}"
 
 - name: Populate yaml file
   template:
@@ -34,7 +36,7 @@
     - "{{ yaml_files }}"
 
 - name: Validation with yamllint
-  shell: "yamllint -c yamllint.yml {{ item }}-{{ env }}"
-  register: output
-  with_items:
+  shell: "yamllint -c {{ item.0 }}-{{ env}} {{ item.1 }}-{{ env}}"
+  with_together:
+    - "{{ yamllint_config }}"
     - "{{ yaml_files }}"
