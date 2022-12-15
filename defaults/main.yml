@@ -1,6 +1,8 @@
 ---
 env: dev
 templates_folder: templates/
+yamllint_config_path: "{{ templates_folder }}/{{ yamllint_config }}"
 yamllint_config: yamllint.yml
+yaml_path: "{{ templates_folder }}/{{ yaml_files }}"
 yaml_files:
   - example.yml.j2

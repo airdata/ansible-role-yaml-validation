@@ -28,7 +28,7 @@
 
 - name: Populate yaml file
   template:
-    src: "{{ item }}"
+    src: "{{templates_folder}}/{{ item }}"
     dest: "{{ item }}-{{ env }}"
   with_items:
     - "{{ yaml_files }}"
