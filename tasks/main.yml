@@ -50,6 +50,5 @@
     path: "{{ item }}-{{ env }}" #correction code
     state: absent
   with_items:
-    - "{{ requierments_file }}"
     - "{{ yamllint_config }}"
     - "{{ yaml_files }}"
