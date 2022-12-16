@@ -1,5 +1,6 @@
 ---
 env: dev
+requierments_file: requirements.yml
 templates_folder_yaml: templates/
 templates_folder_yamllint: templates/
 yamllint_config:

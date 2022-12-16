@@ -38,9 +38,18 @@
     - "{{ yaml_files }}"
 
 - name: Validation with yamllint
-  ansible.builtin.command: "yamllint -c {{ item.0 }}-{{ env}} {{ item.1 }}-{{ env}}"
+  shell: "yamllint -c {{ item.0 }}-{{ env }} {{ item.1 }}-{{ env }}"
   register: xmlvallidation
   changed_when: xmlvallidation.rc != 0
   with_together:
+    - "{{ yamllint_config }}"
+    - "{{ yaml_files }}"
+
+- name: Delete validated files
+  file:
+    path: "{{ item }}-{{ env }}" #correction code
+    state: absent
+  with_items:
+    - "{{ requierments_file }}"
     - "{{ yamllint_config }}"
     - "{{ yaml_files }}"
