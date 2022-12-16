@@ -25,6 +25,7 @@
   template:
     src: "{{templates_folder_yamllint}}/{{ item }}"
     dest: "{{ item }}-{{ env }}"
+    mode: u=rwx,g=rwx,o=rx,g+s
   with_items:
     - "{{ yamllint_config }}"
 
@@ -32,11 +33,14 @@
   template:
     src: "{{templates_folder_yaml}}/{{ item }}"
     dest: "{{ item }}-{{ env }}"
+    mode: u=rwx,g=rwx,o=rx,g+s
   with_items:
     - "{{ yaml_files }}"
 
 - name: Validation with yamllint
-  shell: "yamllint -c {{ item.0 }}-{{ env}} {{ item.1 }}-{{ env}}"
+  ansible.builtin.command: "yamllint -c {{ item.0 }}-{{ env}} {{ item.1 }}-{{ env}}"
+  register: xmlvallidation
+  changed_when: xmlvallidation.rc != 0
   with_together:
     - "{{ yamllint_config }}"
     - "{{ yaml_files }}"
