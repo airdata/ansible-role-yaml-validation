@@ -23,14 +23,14 @@
 
 - name: Populate yamllint config
   template:
-    src: "{{templates_folder}}/{{ item }}"
+    src: "{{templates_folder_yamllint}}/{{ item }}"
     dest: "{{ item }}-{{ env }}"
   with_items:
     - "{{ yamllint_config }}"
 
 - name: Populate yaml file
   template:
-    src: "{{templates_folder}}/{{ item }}"
+    src: "{{templates_folder_yaml}}/{{ item }}"
     dest: "{{ item }}-{{ env }}"
   with_items:
     - "{{ yaml_files }}"
