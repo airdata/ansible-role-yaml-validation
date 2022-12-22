@@ -10,10 +10,11 @@
   when: "'yamllint' not in ansible_facts.packages and ansible_os_family == 'Alpine'"
 
 - name: Enable EPEL Repository on CentOS 8
+  become: true
   yum:
     name: epel-release
     state: latest
-  when: "'yamllint' not in ansible_facts.packages and ansible_facts['os_family'] == 'RedHat' and ansible_facts['distribution_major_version'] == '8'"
+  when: "'yamllint' not in ansible_facts.packages and ansible_facts['os_family'] == 'RedHat'"
 
 - name: Install yamllint on RedHat
   yum:
@@ -36,7 +37,7 @@
     mode: u=rwx,g=rwx,o=rx,g+s
   with_items:
     - "{{ yaml_files }}"
-
+  
 - name: Validation with yamllint
   shell: "yamllint -c {{ item.0 }}-{{ env }} {{ item.1 }}-{{ env }}"
   register: xmlvallidation
