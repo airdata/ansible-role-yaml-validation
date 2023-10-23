@@ -21,7 +21,7 @@ jobs:
           subject: Github Actions job result
           to: rumenlishkoff@gmail.com
           
-          from: Luke Skywalker # OR 'Luke Skywalker <user@example.com>'
+          from: Luke Skywalker 
           
           body: Build job of ${{ github.repository }} completed successfully!
       
