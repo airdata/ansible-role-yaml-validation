@@ -10,16 +10,16 @@ jobs:
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.abv.bg
+          server_address: smtp.gmail.com
           server_port: 465
           
-          username: ${{ secrets.MAIL_USERNAME_ABV }}
-          password: ${{ secrets.MAIL_PASSWORD_ABV }}
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
           
           subject: Github Actions job result
           to: rumenlishkoff@gmail.com
           
-          from: Luke Skywalker # OR 'Luke Skywalker <user@example.com>'
+          from: Luke Skywalker 
           
           body: Build job of ${{ github.repository }} completed successfully!
       
