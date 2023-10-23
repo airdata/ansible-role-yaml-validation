@@ -9,3 +9,14 @@ jobs:
           path: "${{ github.repository }}"
       - name: Molecule for Ansible
         uses: MonolithProjects/action-molecule@v1.4.5
+      - name: Send some mail
+        uses: wadeww/send-email-action@master
+        with:
+          server_address: smtp.gmail.com
+          port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Workflow finished
+          body: Job completed ${{job.status}}
+          to: rumenlishkoff@gmail.com
+          from: best.husky.ever@gmail.com
