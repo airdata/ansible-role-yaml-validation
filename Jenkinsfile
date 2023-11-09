@@ -1,10 +1,17 @@
 pipeline {
    options {
+       skipDefaultCheckout(true)
        ansiColor('xterm')
    }
    agent any
    
    stages {
+        stage('Checkout') {
+            steps {
+                cleanWs()
+                checkout scm
+            }
+        }      
         stage('molecule') {
             steps {
                 sh '''
